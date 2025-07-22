@@ -1,82 +1,75 @@
-
-````markdown
 # Monte Carlo Simulation of the 2D Ising Model
 
-This is a simple Python implementation of the 2D Ising model using the Metropolis Monte Carlo method. It simulates the behavior of a grid of binary spins under local interaction rules and tracks the system's energy over time.
+This repository contains a Python implementation of the 2D Ising model using the Metropolis Monte Carlo method. The simulation evolves a square lattice of spins and reports the total energy at regular intervals.
 
 ## Overview
 
-The Ising model is a mathematical model used in statistical mechanics to describe ferromagnetism. Spins are placed on a lattice and interact with their nearest neighbors. The goal is to understand how local interactions lead to global behavior such as phase transitions and magnetization.
+The Ising model is a fundamental model in statistical mechanics used to study ferromagnetism. Each site on a lattice carries a spin that interacts with its four nearest neighbors. The Metropolis algorithm probabilistically accepts or rejects spin flips based on the change in total energy and temperature, allowing the system to explore low-energy configurations over time.
 
-In this simulation:
-- Spins take values of 0 or 1
+In this implementation:
+- Spins take values of **-1** or **+1**
 - Each spin interacts with its four nearest neighbors
-- Periodic boundary conditions are applied
-- The Metropolis algorithm is used to accept or reject spin flips
+- Periodic boundary conditions connect edges of the matrix
+- The Metropolis criterion is applied to accept or reject spin flips, with a temperature parameter
+
+## Files
+
+- `ising model.py` — main simulation script
 
 ## Features
 
-- Randomly initialized square spin matrix
-- Local energy computation using coupling constant `J`
-- Energy updates using the Metropolis criterion
+- Random initialization of a square spin matrix
+- Local and total energy calculations using coupling constant `J`
+- Metropolis Monte Carlo updates with temperature `T`
 - Periodic boundary conditions
-- Prints total energy at regular intervals
+- Console output of total energy every 50 steps
 
 ## How to Run
 
-Run the script using Python 3:
+1. Clone or download the repository.
+2. Ensure you have Python 3 installed.
+3. Run the simulation:
 
-```bash
-python ising_model.py
-````
+   ```bash
+   python ising\ model.py
+   ```
 
-You will be prompted to enter:
+4. When prompted, enter:
 
-* `length`: the size of the square spin matrix (e.g., 10)
-* `steps`: the number of simulation steps to perform (e.g., 500)
-* `J`: the coupling constant (positive for ferromagnetic interaction)
+   * **length**: size of the square spin matrix (e.g., `10`)
+   * **steps**: number of Monte Carlo steps (e.g., `500`)
+   * **J**: coupling constant (e.g., `1`)
+   * **T**: temperature (e.g., `2.0`)
 
-Example input:
+Example interaction:
 
 ```
 Enter the length of the array: 10
 Enter the number of steps: 500
 Enter the value for J: 1
-```
-
-## Sample Output
-
-```
-Initial total energy: -24
-Total energy after step 50: -40
-Total energy after step 100: -46
+Enter the temperature T: 2.0
+Initial total energy: -40
+Total energy after step 50: -52
+Total energy after step 100: -60
 ...
-Final total energy: -60
+Final total energy: -68
 ```
 
 ## Requirements
 
-This script uses only Python standard libraries:
+This script uses only built-in Python libraries:
 
 * `random`
 * `math`
 
-No installation of external packages is required.
+No additional installations are required.
 
 ## Possible Extensions
 
-* Replace 0/1 spins with -1/+1 for a more conventional model
-* Add temperature and simulate thermal fluctuations
-* Plot energy vs. steps using `matplotlib`
-* Track magnetization over time
-* Visualize the spin lattice dynamically
+* Plot energy vs. simulation steps using `matplotlib`
+* Track and plot lattice magnetization over time
+* Visualize the spin matrix dynamically (e.g., with `matplotlib` or `pygame`)
 
 ## License
 
-This project is open-source and provided for educational and academic use. You are free to modify and distribute it as needed.
-
-```
-
-Let me know if you'd like to convert this into a Jupyter Notebook or add plotting/magnetization tracking before uploading.
-```
-# ising-montecarlo-sim
+This project is open source and provided for educational use. Feel free to modify and distribute under the MIT License.
